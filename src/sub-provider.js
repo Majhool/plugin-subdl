@@ -3,7 +3,7 @@ import { rpc } from "./index";
 const { console, subtitle, sidebar } = iina;
 
 export function register() {
-  subtitle.registerProvider("open-sub", {
+  subtitle.registerProvider("subdl", {
     search: async () => {
       sidebar.show();
       rpc.$requestDownload();

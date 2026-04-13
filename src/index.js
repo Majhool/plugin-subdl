@@ -64,7 +64,7 @@ event.on("iina.window-loaded", () => {
       console.log(`setJWT: no token`);
       return false;
     }
-    const success = utils.keychainWrite("opensubtitles", username, token);
+    const success = utils.keychainWrite("subdltitles", username, token);
     if (success) {
       preferences.set("username", username);
       preferences.sync();
@@ -128,7 +128,7 @@ function getCachedJWT() {
     return;
   }
   console.log(`getJWT: ${username}`);
-  const jwt = utils.keychainRead("opensubtitles", username) ?? null;
+  const jwt = utils.keychainRead("subdltitles", username) ?? null;
   console.log(`getJWT: token length: ${jwt?.length}`);
   return { jwt, username };
 }

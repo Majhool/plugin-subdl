@@ -3,7 +3,7 @@ import "../shared.scss";
 import { createApp } from "vue";
 import App from "./app.vue";
 
-import { API, Client } from "../../src/opensub";
+import { API, Client } from "../../src/subdl";
 import { rpcClient } from "../../src/message";
 
 import { library } from "@fortawesome/fontawesome-svg-core";

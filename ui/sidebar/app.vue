@@ -42,7 +42,7 @@
           {{ userInfo.username }}
         </div>
         <div v-else class="header-item ui-clickable ui-hover" @click="login">
-          Log in
+          API Key
         </div>
       </div>
       <div class="right">
@@ -286,24 +286,18 @@
         <!-- Modal: Login -->
         <div v-if="modalType === 'login'">
           <div>
-            Please enter your <em>opensubtitles.com</em> username and password.
-            Note that this is not the same as your
-            <em>opensubtitles.org</em> account. If you have not
-            <a href="https://www.opensubtitles.com/users/import">migrated</a>
-            your account yet, please do so before logging in.
+            Please enter your <em>SubDL</em> API Key.
+            You can get your API Key from your
+            <a href="https://subdl.com/" @click.prevent="showInBrowser({ attributes: { url: 'https://subdl.com' } })">SubDL</a>
+            account settings.
           </div>
           <div class="login-container">
             <input
               type="text"
-              placeholder="Username"
+              placeholder="API Key"
               autocorrect="off"
               autocomplete="off"
               v-model="loginUsername"
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              v-model="loginPassword"
             />
           </div>
           <p v-if="loginError.length" class="login-error">{{ loginError }}</p>
@@ -338,7 +332,7 @@
         <div v-if="modalType === 'login'" class="ui-lr">
           <div class="left"></div>
           <div class="right">
-            <button @click="performLogin" :disabled="loggingIn">Login</button>
+            <button @click="performLogin" :disabled="loggingIn">Save</button>
           </div>
         </div>
         <div v-if="modalType === 'subInfo'" class="ui-lr">

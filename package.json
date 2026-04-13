@@ -1,5 +1,5 @@
 {
-  "name": "iina-plugin-opensub",
+  "name": "iina-plugin-subdl",
   "version": "0.9.6",
   "description": "",
   "main": "src/index.js",
