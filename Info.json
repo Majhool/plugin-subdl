@@ -8,7 +8,7 @@
     "url": "https://github.com/Majhool/plugin-subdl"
   },
   "ghVersion": 9,
-  "ghRepo": "iina/plugin-subdl",
+  "ghRepo": "Majhool/plugin-subdl",
   "entry": "dist/index.js",
   "global": "dist/global.js",
   "permissions": ["show-osd", "file-system", "network-request"],

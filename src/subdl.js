@@ -7,16 +7,12 @@ export class Client {
   constructor(options = {}) {
     this.rpc = new rpcClient(iina);
     
-    this.rpc.$getApiKey = async () => {
-      const username = iina.preferences.get("username") || "";
+    // We fetch the saved API Key using the legacy name $getJWT for compatibility
+    this.rpc.$getJWT().then(({ jwt, username } = {}) => {
+      // We stored it in username previously
       if (username) {
         this.apiKey = username;
       }
-      return { username };
-    };
-
-    this.rpc.$getApiKey().then(({ username }) => {
-      this.apiKey = username;
     });
   }
 
@@ -26,15 +22,14 @@ export class Client {
 
   async login(username, password) {
     this.apiKey = username;
-    iina.preferences.set("username", username);
-    iina.preferences.sync();
-    return { token: this.apiKey, jwtSaved: true, user: { level: "VIP" } };
+    // Save locally
+    const success = this.rpc.$setJWT(username, username); // sending as both username and token
+    return { token: this.apiKey, jwtSaved: success, user: { level: "VIP" } };
   }
 
   async logout() {
     this.apiKey = null;
-    iina.preferences.set("username", "");
-    iina.preferences.sync();
+    this.rpc.$setJWT("", "");
     return { status: "logged out" };
   }
 
