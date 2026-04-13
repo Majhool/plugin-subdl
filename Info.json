@@ -1,11 +1,11 @@
 {
   "name": "SubDL",
   "identifier": "io.iina.subdl",
-  "version": "0.9.6",
-  "description": "Official SubDL plugin for IINA",
+  "version": "0.1",
+  "description": "SubDL plugin for IINA",
   "author": {
-    "name": "IINA Developers",
-    "url": "https://github.com/iina/plugin-subdl"
+    "name": "Majhool Developer",
+    "url": "https://github.com/Majhool/plugin-subdl"
   },
   "ghVersion": 9,
   "ghRepo": "iina/plugin-subdl",
